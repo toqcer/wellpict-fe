@@ -1,17 +1,27 @@
-<script setup lang="ts">
-import { ref } from 'vue'
+<script lang="ts">
+import { ref, defineComponent } from 'vue'
+import { Header } from './components'
 
-const count = ref(0)
-
+export default defineComponent({
+  name: "App",
+  components: {Header},
+  setup(){
+    const count = ref(0)
+    
+    return { count }
+  }
+})
 </script>
 
 <template>
-  <div class="container mx-auto">
-    <h1 class="text-sm text-red-700 font-bold">Hello World</h1>
-    <button class="px-5 py-2 bg-cyan-600 text-white rounded outline-none mr-3" @click="count++">Count</button>
-    <span class="font-bold text-2xl">{{count}}</span>
-  </div>
+  <router-link to="/">Home</router-link>
+  <router-link to="/about">About</router-link>
+  <router-view></router-view>
 </template>
 
+
 <style scoped>
+.card {
+  background: red
+}
 </style>
